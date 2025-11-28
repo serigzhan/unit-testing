@@ -15,7 +15,20 @@
 
             var actualTotal = cart.Total;
 
-            Assert.AreEqual(0.00, actualTotal);
+            Assert.That(actualTotal, Is.EqualTo(0.00));
+
+        }
+
+        [Test]
+        public void Should_Return_With_Zero_Percent_Discount_For_One_Book()
+        {
+
+            var cart = new ShoppingCart();
+            cart.Add("Harry Potter and the Sorcerer's Stone", 1);
+
+            var actualTotal = cart.Total;
+
+            Assert.That(actualTotal, Is.EqualTo(8.00));
 
         }
 
