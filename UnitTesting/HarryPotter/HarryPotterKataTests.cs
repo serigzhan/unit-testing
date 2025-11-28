@@ -15,7 +15,7 @@
 
             var actualTotal = cart.Total;
 
-            Assert.AreEqual(0, actualTotal);
+            Assert.AreEqual(0.00, actualTotal);
 
         }
 
