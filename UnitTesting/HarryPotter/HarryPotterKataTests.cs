@@ -32,5 +32,19 @@
 
         }
 
+        [Test]
+        public void Should_Return_With_Five_Percent_Discount_For_Two_Different_Books()
+        {
+
+            var cart = new ShoppingCart();
+            cart.Add("Harry Potter and the Sorcerer's Stone", 1);
+            cart.Add("Harry Potter and the Chamber of Secrets", 1);
+
+            var actualTotal = cart.Total;
+
+            Assert.That(actualTotal, Is.EqualTo(15.20));
+
+        }
+
     }
 }
