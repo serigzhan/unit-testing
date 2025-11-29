@@ -19,5 +19,18 @@
 
         }
 
+        [TestCase(3, "Buzz")]
+        [TestCase(21, "Buzz")]
+        [TestCase(66, "Buzz")]
+        [TestCase(99, "Buzz")]
+        public void Should_Return_Buzz_If_Number_Divisible_By_Three(int input, string output)
+        {
+
+            var actualNumber = FizzBuzz.Print(input);
+
+            Assert.That(actualNumber, Is.EqualTo(output));
+
+        }
+
     }
 }
