@@ -25,16 +25,29 @@
 
             var counts = _shoppingCart.Select(b => b.Quantity).ToList();
 
-            double sum = 0.00;
+            var basketSets = new List<int>();
 
-            foreach (CartItem item in _shoppingCart)
+            while (counts.Any(q => q > 0))
             {
 
-                sum += item.Price * item.Quantity;
+                int setSize = counts.Count(q => q > 0);
+                basketSets.Add(setSize);
+
+                for (int i = 0; i < counts.Count; i++)
+                {
+                    if (counts[i] > 0) counts[i]--;
+                }
 
             }
 
-            sum *= 1 - getDiscount(counts.Aggregate((a, b) => a + b));
+            double sum = 0.00;
+
+            foreach (int size in basketSets)
+            {
+                double discount = getDiscount(size);
+                sum += size * 8 * (1 - discount);
+
+            }
 
             return sum;
 
