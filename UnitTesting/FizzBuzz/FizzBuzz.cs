@@ -9,7 +9,7 @@
             if (num % 3 == 0)
             {
 
-                return "Buzz";
+                return "Fizz";
 
             }
 

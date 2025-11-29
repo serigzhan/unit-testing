@@ -19,11 +19,11 @@
 
         }
 
-        [TestCase(3, "Buzz")]
-        [TestCase(21, "Buzz")]
-        [TestCase(66, "Buzz")]
-        [TestCase(99, "Buzz")]
-        public void Should_Return_Buzz_If_Number_Divisible_By_Three(int input, string output)
+        [TestCase(3, "Fizz")]
+        [TestCase(21, "Fizz")]
+        [TestCase(66, "Fizz")]
+        [TestCase(99, "Fizz")]
+        public void Should_Return_Fizz_If_Number_Divisible_By_Three(int input, string output)
         {
 
             var actualNumber = FizzBuzz.Print(input);
