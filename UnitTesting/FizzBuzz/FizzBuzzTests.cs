@@ -45,5 +45,18 @@
 
         }
 
+        [TestCase(15, "FizzBuzz")]
+        [TestCase(30, "FizzBuzz")]
+        [TestCase(60, "FizzBuzz")]
+        [TestCase(75, "FizzBuzz")]
+        public void Should_Return_FizzBuzz_If_Number_Divisible_By_Three_And_Five(int input, string output)
+        {
+
+            var actualNumber = FizzBuzz.Print(input);
+
+            Assert.That(actualNumber, Is.EqualTo(output));
+
+        }
+
     }
 }
