@@ -6,14 +6,24 @@
         public static string Print(int num)
         {
 
-            if (num % 3 == 0)
+            var isDivisibleByThree = num % 3 == 0;
+            var isDivisibleByFive = num % 5 == 0;
+
+            if (isDivisibleByThree && isDivisibleByFive)
+            {
+
+                return "FizzBuzz";
+
+            }
+
+            if (isDivisibleByThree)
             {
 
                 return "Fizz";
 
             }
 
-            if (num % 5 == 0)
+            if (isDivisibleByFive)
             {
 
                 return "Buzz";
