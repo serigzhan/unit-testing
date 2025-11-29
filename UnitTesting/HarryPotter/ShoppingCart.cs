@@ -6,7 +6,7 @@
     public class ShoppingCart
     {
 
-        private List<CartItem> _shoppingCart = [];
+        private readonly List<CartItem> _shoppingCart = [];
 
         public double Total
         {
@@ -44,7 +44,7 @@
 
             foreach (int size in basketSets)
             {
-                double discount = getDiscount(size);
+                double discount = GetDiscount(size);
                 sum += size * 8 * (1 - discount);
 
             }
@@ -53,7 +53,7 @@
 
         }
 
-        private static double getDiscount(int count)
+        private static double GetDiscount(int count)
         {
             return count switch
             {
