@@ -6,7 +6,7 @@
         public static string Print(int num)
         {
 
-            throw new NotImplementedException();
+            return num.ToString();
 
         }
         
