@@ -16,7 +16,10 @@
         public void Run()
         {
 
-            throw new NotImplementedException();
+            for (int i = 1; i < 100; i++)
+            {
+                _printer.Print(GetValue(i));
+            }
 
         }
 
