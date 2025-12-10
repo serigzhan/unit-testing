@@ -1,10 +1,19 @@
-﻿namespace UnitTesting.FizzBuzz
+﻿using Moq;
+
+namespace UnitTesting.FizzBuzz
 {
     public class FizzBuzzTests
     {
+        FizzBuzz app;
+        Mock<IPrinter> mockPrinter;
 
         [SetUp]
-        public void SetUp() { }
+        public void SetUp() {
+
+            mockPrinter = new Mock<IPrinter>();
+            app = new FizzBuzz(mockPrinter.Object);
+
+        }
 
         [TestCase(1, "1")]
         [TestCase(29, "29")]
@@ -13,7 +22,7 @@
         public void Should_Return_Same_Passed_Number(int input, string output)
         {
 
-            var actualNumber = FizzBuzz.Print(input);
+            var actualNumber = app.GetValue(input);
 
             Assert.That(actualNumber, Is.EqualTo(output));
 
@@ -26,7 +35,7 @@
         public void Should_Return_Fizz_If_Number_Divisible_By_Three(int input, string output)
         {
 
-            var actualNumber = FizzBuzz.Print(input);
+            var actualNumber = app.GetValue(input);
 
             Assert.That(actualNumber, Is.EqualTo(output));
 
@@ -39,7 +48,7 @@
         public void Should_Return_Buzz_If_Number_Divisible_By_Five(int input, string output)
         {
 
-            var actualNumber = FizzBuzz.Print(input);
+            var actualNumber = app.GetValue(input);
 
             Assert.That(actualNumber, Is.EqualTo(output));
 
@@ -52,9 +61,18 @@
         public void Should_Return_FizzBuzz_If_Number_Divisible_By_Three_And_Five(int input, string output)
         {
 
-            var actualNumber = FizzBuzz.Print(input);
+            var actualNumber = app.GetValue(input);
 
             Assert.That(actualNumber, Is.EqualTo(output));
+
+        }
+
+        [Test]
+        public void Should_Print_Hunderd_Lines()
+        {
+
+            app.Run();
+            mockPrinter.Verify(p => p.Print(It.IsAny<string>()), Times.Exactly(99));
 
         }
 

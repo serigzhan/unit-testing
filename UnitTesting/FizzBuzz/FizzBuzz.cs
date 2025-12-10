@@ -1,9 +1,26 @@
 ﻿namespace UnitTesting.FizzBuzz
 {
-    public static class FizzBuzz
+
+    public interface IPrinter
     {
 
-        public static string Print(int num)
+        void Print(string value);
+
+    }
+
+    public class FizzBuzz(IPrinter printer)
+    {
+
+        private readonly IPrinter _printer = printer;
+
+        public void Run()
+        {
+
+            throw new NotImplementedException();
+
+        }
+
+        public string GetValue(int num)
         {
 
             var isDivisibleByThree = num % 3 == 0;
